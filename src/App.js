@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://api.nasa.gov/planetary/apod?api_key=lpBBcxqxRfI6s9qSJg7NKcTh1BUxwfEq5YAd8Iby&thumbs=True&start_date=2022-1-1&end_date=2022-1-19")
+    fetch("https://api.nasa.gov/planetary/apod?api_key=''&thumbs=True&start_date=2022-1-1&end_date=2022-1-19")
     .then(
       response => {
         console.log('response', response);
