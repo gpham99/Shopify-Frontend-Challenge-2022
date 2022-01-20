@@ -10,13 +10,15 @@ This is my solution to Shopify's Front End Developer Intern Challenge. This proj
 The product is deployed at https://elegant-joliot-ddaaab.netlify.app/.
 
 ## Features Implemented
-- Basic features:
+Basic features:
+
 * Fetch data from NASA APOD API and display the resulting images
 * Display descriptive data for each image
 * Like an image
 * Unlike an image
 
-- Additional features:
+Additional features:
+
 * Infinite scroll
 * Add a loading state while we wait for NASA’s API to return data
 * Create shareable links for each image
