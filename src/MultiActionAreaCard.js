@@ -1,48 +1,33 @@
-import React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material';
-import LikeButton from './LikeButton';
-import ShareButton from './ShareButton';
+import React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea, CardActions } from "@mui/material";
+import LikeButton from "./LikeButton";
+import ShareButton from "./ShareButton";
 
-const MultiActionAreaCard = props => {
-return (
-<Card xs={{ }}>
-    <CardActionArea>
-    <CardMedia
-        component="img"
-        height="200"
-        src={props.url}
-        alt="nasa"
-    />
-    <CardContent>
-        <Typography gutterBottom style={{ fontWeight: 600 }}>
+const MultiActionAreaCard = (props) => {
+  return (
+    <Card xs={{}}>
+      <CardActionArea>
+        <CardMedia component="img" height="200" src={props.url} alt="nasa" />
+        <CardContent>
+          <Typography gutterBottom style={{ fontWeight: 600 }}>
             {props.title}
-        </Typography>
+          </Typography>
 
-        <Typography variant="body2" color="text.secondary" align="center">
+          <Typography variant="body2" color="text.secondary" align="center">
             {props.date}
-        </Typography>
-    </CardContent>
-    </CardActionArea>
-    <CardActions>
-    
-    <LikeButton></LikeButton>
-    <ShareButton url={props.url}></ShareButton>
-
-        {/* <Button size="small" onClick={() => {
-            navigator.clipboard.writeText(props.url);
-            alert('Link copied to clipboard');
-        }}>
-            <Typography style={{ fontWeight: 600 }}>Share</Typography>
-        </Button> */}
-    
-
-    </CardActions>
-</Card>
-);
-}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <LikeButton></LikeButton>
+        <ShareButton url={props.url}></ShareButton>
+      </CardActions>
+    </Card>
+  );
+};
 
 export default MultiActionAreaCard;

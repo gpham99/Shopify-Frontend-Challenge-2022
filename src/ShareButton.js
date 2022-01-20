@@ -1,32 +1,32 @@
-import React from 'react';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
+import React from "react";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
 
-const ShareButton = props => {
-    const [open, setOpen] = React.useState(false);
+const ShareButton = (props) => {
+	const [open, setOpen] = React.useState(false);
 
-    const handleClick = () => {
-        setOpen(true);
-        navigator.clipboard.writeText(props.url);
-    };
+  const handleClick = () => {
+    setOpen(true);
+    navigator.clipboard.writeText(props.url);
+  };
 
-    return (
-        <div>
-        <Button size="small" onClick={handleClick}>
-            <Typography style={{ fontWeight: 600 }}>
-                Share
-            </Typography>
-        </Button>
+  return (
+    <div>
+      <Button size="small" onClick={handleClick}>
+        <Typography style={{ fontWeight: 600 }}>Share</Typography>
+      </Button>
 
-        <Snackbar
+      <Snackbar
         open={open}
         autoHideDuration={1000}
-        onClose = {() => {setOpen(false)}}
+        onClose={() => {
+          setOpen(false);
+        }}
         message="Link copied to clipboard"
-        />
-        </div>
-    );
-}
+      />
+    </div>
+  );
+};
 
 export default ShareButton;
