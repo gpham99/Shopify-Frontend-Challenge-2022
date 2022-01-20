@@ -11,31 +11,59 @@ class App extends Component {
     super();
     this.state = {
       loading: true,
-      photos: []
+      photos: [],
+      endDate: new Date()
     };
   }
 
-  componentDidMount() {
-    fetch("https://api.nasa.gov/planetary/apod?api_key=''&thumbs=True&start_date=2022-1-1&end_date=2022-1-19")
+  fetchData = (endDate) => {
+    let endDateFormatted = endDate.toISOString().split('T')[0];
+    let startDate = endDate;
+    startDate.setDate(startDate.getDate() - 6);
+    let startDateFormatted = startDate.toISOString().split('T')[0];
+
+    let apodUrl = `https://api.nasa.gov/planetary/apod?api_key=lpBBcxqxRfI6s9qSJg7NKcTh1BUxwfEq5YAd8Iby&thumbs=True&start_date=${startDateFormatted}&end_date=${endDateFormatted}`;
+
+    fetch(apodUrl)
     .then(
-      response => {
-        console.log('response', response);
-        if (!response.ok) {
-          throw Error('Error fetching planet photos');
+      res => {
+        console.log('subresponse', res)
+        if (!res.ok) {
+          throw Error('Error fetching a subsection of planet photos');
         }
-        return response.json()
-        .then(allData => {
-          console.log('allData', allData)
-          this.setState({
-            loading: false,
-            photos: allData 
-          });
-        })
-        .catch(err => {
-          throw Error(err.message);
-        })
+        return res.json()
+        .then(
+          data => {
+            data = data.reverse()
+            this.setState({
+              loading: false,
+              photos: [...this.state.photos, ...data]
+            })
+          }
+        )
       }
     )
+  }
+
+  infiniteScroll = () => {
+    let documentHeight = document.body.scrollHeight;
+    let currentScroll = window.scrollY + window.innerHeight;
+    let modifier = 250; // when the user is [modifier]px from the bottom, fire the event
+    if(currentScroll + modifier > documentHeight) {
+      let newEndDate = this.state.endDate;
+      newEndDate.setDate(newEndDate.getDate() - 1);
+      this.setState({
+        endDate: newEndDate
+      });
+
+
+      this.fetchData(newEndDate);
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.infiniteScroll);
+    this.fetchData(this.state.endDate);
   }
   
   render() {
@@ -52,14 +80,12 @@ class App extends Component {
       </Box>
     </header>
 
-    {this.state.loading &&
-      <Box sx={{ width: '100%' }}>
-      <LinearProgress color="secondary"/>
-    </Box>
-    }
-
     <Box className="App" px={{xs: 7, sm: 15}} py={10}>
       <PhotoContainer photos={this.state.photos}></PhotoContainer>
+
+      <Box sx={{ width: '100%' }} p={5}>
+        <LinearProgress color="secondary"/>
+      </Box>
     </Box>
 
     {!this.state.loading && 
