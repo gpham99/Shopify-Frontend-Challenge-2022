@@ -4,12 +4,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
-import LikeButton from './LikeButton'
+import LikeButton from './LikeButton';
+import ShareButton from './ShareButton';
 
 const MultiActionAreaCard = props => {
 return (
 <Card xs={{ }}>
-{/* maxWidth: 345 */}
     <CardActionArea>
     <CardMedia
         component="img"
@@ -30,6 +30,15 @@ return (
     <CardActions>
     
     <LikeButton></LikeButton>
+    <ShareButton url={props.url}></ShareButton>
+
+        {/* <Button size="small" onClick={() => {
+            navigator.clipboard.writeText(props.url);
+            alert('Link copied to clipboard');
+        }}>
+            <Typography style={{ fontWeight: 600 }}>Share</Typography>
+        </Button> */}
+    
 
     </CardActions>
 </Card>
