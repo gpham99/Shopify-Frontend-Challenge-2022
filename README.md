@@ -12,7 +12,7 @@ The product is deployed at https://condescending-ardinghelli-57ea2f.netlify.app.
 ## Features Implemented
 Basic features:
 
-* Fetch data from NASA APOD API and display the resulting images
+* Fetch data from NASA's APOD API and display the resulting images
 * Display descriptive data for each image
 * Like an image
 * Unlike an image
