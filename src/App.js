@@ -27,7 +27,6 @@ class App extends Component {
     fetch(apodUrl)
     .then(
       res => {
-        console.log('subresponse', res)
         if (!res.ok) {
           throw Error('Error fetching a subsection of planet photos');
         }
