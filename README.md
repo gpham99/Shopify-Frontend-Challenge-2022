@@ -23,8 +23,11 @@ Additional features:
 * Add a loading state while we wait for NASA’s API to return data
 * Create shareable links for each image
 
+## Dependencies
+Check out the `package.json` file for dependencies.
+
 ## Installation and Running Instruction
 1. Clone this repository into your local machine `git clone https://github.com/gpham99/Shopify-Frontend-Challenge-2022`.
 
-2. In the project directory, you can run `npm start`.
+2. After installing all the required dependencies, in the project directory, you can run `npm start`.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
