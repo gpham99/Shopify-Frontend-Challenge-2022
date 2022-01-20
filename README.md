@@ -7,7 +7,7 @@ Email: giangthupham.99@gmail.com
 This is my solution to Shopify's Front End Developer Intern Challenge. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Deployment
-The product is deployed at https://condescending-ardinghelli-57ea2f.netlify.app.
+The product is deployed at https://peaceful-ride-91d0da.netlify.app.
 
 ## Features Implemented
 Basic features:
