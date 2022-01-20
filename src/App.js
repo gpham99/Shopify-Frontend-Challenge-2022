@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import LinearProgress from '@mui/material/LinearProgress';
+import Grid from '@mui/material/Grid';
 
 class App extends Component {
   constructor() {
@@ -82,9 +83,20 @@ class App extends Component {
     <Box className="App" px={{xs: 7, sm: 15}} py={10}>
       <PhotoContainer photos={this.state.photos}></PhotoContainer>
 
-      <Box sx={{ width: '100%' }} p={5}>
-        <LinearProgress color="secondary"/>
-      </Box>
+      {
+        this.state.endDate >= new Date("June 16 1995") && 
+        <Grid container p={5}
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        >
+          <Grid item sx={{ width: '100%' }}>
+            <LinearProgress color="secondary"/>
+          </Grid>
+        </Grid>
+      }
+      
     </Box>
 
     {!this.state.loading && 
